@@ -166,37 +166,65 @@ const priceInput = document.querySelector('.price');
 // Retrieve the products array from local storage
 const products = JSON.parse(localStorage.getItem('products')) || [];
 
+
+//Access the alements in the products and store them in a variables;
+products.forEach(function(element){
+    const product_id = element.id;
+    const product_name = element.name;
+    const product_seller = element.seller;
+    const product_price = element.price;
+    // //console.log(`id: ${element.id}`);
+    // console.log(product_id);
+    // console.log(product_name);
+    // console.log(product_seller);
+    // console.log(product_price);
+});
+
+
+
+
+
+
+// let result = products.find(val => val.id == '2');
+// console.log(result);
+
+const editBtn = document.querySelector('.edit-btns');
+editBtn.addEventListener('click', () => {
+    
+    alert("Hello world");
+});
+
 // Loop through the products array and add a row to the table for each product
-for (const product of products) {
+//for (const product of products) {
   // Create a new row in the table
   const newRow = document.createElement('tr');
-  console.log(product);
+ // console.log(product);
   // Add the input fields to the row
-  newRow.innerHTML = `
-    <td><input type="text" value="${product.id}" disabled></td>
-    <td><input type="text" value="${product.name}" disabled></td>
-    <td><input type="text" value="${product.seller}" disabled></td>
-    <td><input type="number" value="${product.price}" disabled></td>
-    <td><button class="edit-btns"><i class="fas fa-edit"></i></button></td>
-    <td><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></td>
-  `;
+//   newRow.innerHTML = `
+//     <td><input type="text" value="${product.id}" disabled></td>
+//     <td><input type="text" value="${product.name}" disabled></td>
+//     <td><input type="text" value="${product.seller}" disabled></td>
+//     <td><input type="number" value="${product.price}" disabled></td>
+//     <td><button class="edit-btns"><i class="fas fa-edit"></i></button></td>
+//     <td><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></td>
+//   `;
 
   // Add the new row to the table
   tableBody.appendChild(newRow);
 
   // Add an event listener to the edit button to enable editing of the input fields
-  const editButton = newRow.querySelector('.edit-btns');
-  editButton.addEventListener('click', () => {
-    idInput.value = product.id;
-    nameInput.value = product.name;
-    sellerInput.value = product.seller;
-    priceInput.value = product.price;
-    idInput.disabled = false;
-    nameInput.disabled = false;
-    sellerInput.disabled = false;
-    priceInput.disabled = false;
-  });
+//   const editButton = newRow.querySelector('.edit-btns');
+//   editButton.addEventListener('click', () => {
+//     idInput.value = product.id;
+//     nameInput.value = product.name;
+//     sellerInput.value = product.seller;
+//     priceInput.value = product.price;
+//     idInput.disabled = false;
+//     nameInput.disabled = false;
+//     sellerInput.disabled = false;
+//     priceInput.disabled = false;
+//   });
 }
 
-  }
+  //}
 update();
