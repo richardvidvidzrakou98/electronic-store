@@ -171,6 +171,11 @@ table {
     border: none;
     font-size: 16px;
   }
+
+  .edit-btns:hover{
+    cursor: pointer;
+  }
+
   .delete-btn i{
     color: #f44d44;
     background-color: transparent;

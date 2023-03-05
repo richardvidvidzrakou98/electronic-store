@@ -8,8 +8,12 @@ const tableBody = document.querySelector('.display-table tbody');
 const form = document.querySelector('form');
 const createBtn = document.querySelector('#create');
 const updateBtn = document.querySelector('#update');
+const tBody = document.querySelector('#tbody');
 
 
+// const arr = [1, 2, 3, 4, 5, 6];
+// //arr.splice(1);
+// console.log(arr);
 
 // Retrieve the products from local storage, or create an empty array
 let products = JSON.parse(localStorage.getItem('products')) || [];
@@ -63,7 +67,7 @@ function confirmButton(){
    
     if (buttonValue === 'no') {
         document.getElementsByClassName('confirm-action')[0].style.display = "none";
-        alert("Success");
+        //alert("Success");
     }
 }
     buttonY.addEventListener('click', handleClick);
@@ -84,9 +88,9 @@ function confirmButton(){
 
 
 
-document.getElementById('delete').onclick = function(){
-    confirmButton();
-}
+// document.getElementById('delete').onclick = function(){
+//     confirmButton();
+// }
 
 
 
@@ -130,10 +134,10 @@ createBtn.addEventListener('click', () => {
         tableBody.appendChild(newRow);
 
         // Clear the input fields
-        idInput.value = '';
-        nameInput.value = '';
-        sellerInput.value = '';
-        priceInput.value = '';
+        // idInput.value = '';
+        // nameInput.value = '';
+        // sellerInput.value = '';
+        // priceInput.value = '';
     }
 
     
@@ -147,84 +151,86 @@ createBtn.addEventListener('click', () => {
 tableBody.addEventListener('click', (event) => {
     if (event.target.classList.contains('delete-btn')) {
       const row = event.target.parentNode.parentNode;
+    //   console.log(row);
       row.remove();
     }
   });
+
+
+
+//   const edit = document.querySelector('.edit-btns');
+//   edit.addEventListener('click', function(){
+//     alert("clicked");
+  //})
+  tableBody.addEventListener('click', (event) => {
+    if (event.target.classList.contains('edit-btns')) {
+      const row = event.target.parentNode.parentNode;
+      const tds = row.querySelectorAll('td');
+      const values = [];
+      
+  
+      tds.forEach(td => {
+        values.push(td.textContent.trim());
+      });
+
+      
+      
+
+      const product_id = values[0];
+      const product_name = values[1];
+      const product_seller = values[2];
+      const product_price = values[3];
+  
+      const pro_id = document.querySelector('.product-id');
+      const pro_name = document.querySelector('.product-name');
+      const pro_seller = document.querySelector('.seller');
+      const pro_price = document.querySelector('.price');
+  
+      pro_id.value = product_id;
+      pro_name.value = product_name;
+      pro_seller.value = product_seller;
+      pro_price.value = product_price;
+
+      console.log(values);
+      
+      // Attach a click event listener to the update button
+      updateBtn.addEventListener('click', () => {
+
+        
+        
+        // Update the row with the new values
+        tds[0].textContent = pro_id.value;
+        tds[1].textContent = pro_name.value;
+        tds[2].textContent = pro_seller.value;
+        tds[3].textContent = pro_price.value;
+
+        
+        //Update the values array with the new values
+        values[0] = pro_id.value;
+        values[1] = pro_name.value;
+        values[2] = pro_seller.value;
+        values[3] = pro_price.value;
+
+        // values.length = 0;
+        // console.log(values);
+        //console.log(tds);
+        // values.length = 0;
+        // conso
+  
+        // Clear the input fields
+        pro_id.value = '';
+        pro_name.value = '';
+        pro_seller.value = '';
+        pro_price.value = '';
+      });
+    }
+  });
+
+  
   
 
-  function update(){
-    
-// Get the table body element
-const tableBody = document.getElementById('tbody');
+  //Update data in the table body when click event happens to update button
 
-// Get the input fields
-const idInput = document.querySelector('.product-id');
-const nameInput = document.querySelector('.product-name');
-const sellerInput = document.querySelector('.seller');
-const priceInput = document.querySelector('.price');
+  
 
-// Retrieve the products array from local storage
-const products = JSON.parse(localStorage.getItem('products')) || [];
-
-
-//Access the alements in the products and store them in a variables;
-products.forEach(function(element){
-    const product_id = element.id;
-    const product_name = element.name;
-    const product_seller = element.seller;
-    const product_price = element.price;
-    // //console.log(`id: ${element.id}`);
-    // console.log(product_id);
-    // console.log(product_name);
-    // console.log(product_seller);
-    // console.log(product_price);
-});
-
-
-
-
-
-
-// let result = products.find(val => val.id == '2');
-// console.log(result);
-
-const editBtn = document.querySelector('.edit-btns');
-editBtn.addEventListener('click', () => {
-    
-    alert("Hello world");
-});
-
-// Loop through the products array and add a row to the table for each product
-//for (const product of products) {
-  // Create a new row in the table
-  const newRow = document.createElement('tr');
- // console.log(product);
-  // Add the input fields to the row
-//   newRow.innerHTML = `
-//     <td><input type="text" value="${product.id}" disabled></td>
-//     <td><input type="text" value="${product.name}" disabled></td>
-//     <td><input type="text" value="${product.seller}" disabled></td>
-//     <td><input type="number" value="${product.price}" disabled></td>
-//     <td><button class="edit-btns"><i class="fas fa-edit"></i></button></td>
-//     <td><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></td>
-//   `;
-
-  // Add the new row to the table
-  tableBody.appendChild(newRow);
-
-  // Add an event listener to the edit button to enable editing of the input fields
-//   const editButton = newRow.querySelector('.edit-btns');
-//   editButton.addEventListener('click', () => {
-//     idInput.value = product.id;
-//     nameInput.value = product.name;
-//     sellerInput.value = product.seller;
-//     priceInput.value = product.price;
-//     idInput.disabled = false;
-//     nameInput.disabled = false;
-//     sellerInput.disabled = false;
-//     priceInput.disabled = false;
-//   });
-}
-
-  //}
-update();
+  
