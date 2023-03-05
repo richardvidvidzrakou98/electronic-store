@@ -84,60 +84,58 @@ body{
     border-radius: 4px;
 }
 
-#create{
+#create-btn{
     width: 14%;
     margin-right: 10px;
     color: white;
     background-color: #0aaa38;
 }
 
-#create:hover{
+#create-btn:hover{
     cursor: pointer;
     background-color: #37884e;
     transition: 0.6s ease;
   }
 
-#read{
+#read-btn{
     width: 14%;
     margin-right: 10px;
     color: white;
     background-color: #3F74F8;
 }
 
-#read:hover{
+#read-btn:hover{
     cursor: pointer;
     background-color: #235cee;
     transition: 0.6s ease;
   }
 
-#update{
+#update-btn{
     width: 14%;
     margin-right: 10px;
     background-color: #FEDB1F;
 }
 
-#update:hover{
+#update-btn:hover{
     cursor: pointer;
     background-color: #e8c502;
     transition: 0.6s ease;
   }
 
-#delete{
+#delete-btn{
     width: 19%;
     color: white;
     background-color: #bb1133;
 }
 
-#delete:hover{
+#delete-btn:hover{
     cursor: pointer;
     background-color: #960320;
     transition: 0.6s ease;
   }
 
-.display-table{
-    padding-left: 40px; ;
-    padding-right: 40px;
-}
+
+
 
 table {
     width: 100%;
@@ -176,7 +174,7 @@ table {
     cursor: pointer;
   }
 
-  .delete-btn i{
+  .delete-btns{
     color: #f44d44;
     background-color: transparent;
     border: none;

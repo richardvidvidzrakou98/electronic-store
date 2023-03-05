@@ -16,7 +16,7 @@
         <div class="header">
             <p>Electronic Store</p>
         </div>
-    <form action="">
+    <!-- <form action="">
             <div class="input-fields">
                 
                 <input type="text" class="product-id" name="name" required placeholder="Product ID">
@@ -44,23 +44,66 @@
             <button class="false" value="no">exit</button><button class="true" value="yes">delete</button>
         </div>
     </form>
-        <br>
-        <div class="display-table">
-            <table>
-                <thead>
-                  <tr class="table-row">
+    <br>
+    <div class="display-table">
+        <table>
+            <thead>
+                <tr class="table-row">
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Seller</th>
+                <th>Price</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+            </table>
+    </div> -->
+    <form action="">
+        <div class="input-fields">
+            <input type="text" class="product-id" name="name" required placeholder="Product ID">
+            <br>
+            <input type="text" class="product-name" name="name" required placeholder="Product Name">
+            <br>
+            <div class="fields-2">
+                <input type="text" class="seller" name="name" required placeholder="Seller">
+                <input type="text" class="price" name="name" required placeholder="Price(GH₵)">
+            </div>
+            <br>
+        </div>
+        <div class="crud-buttons">
+            <input type="submit" class="crud-btn" id="create-btn" value="Create">
+            <input type="submit" class="crud-btn" id="read-btn" value="Read">
+            <input type="submit" class="crud-btn" id="update-btn" value="Update">
+            <input type="submit" class="crud-btn" id="delete-btn" value="Delete">
+            <br>
+        </div><br>
+        <div class="confirm-action">
+            <span class="message"></span>
+            <button class="false" id="cancel-btn" value="no">Cancel</button>
+            <button class="true" id="confirm-btn" value="yes">Delete</button>
+        </div>
+    </form>
+    <br>
+    <div class="display-table">
+        <table>
+            <thead>
+                <tr class="table-row">
                     <th>ID</th>
                     <th>Product Name</th>
                     <th>Seller</th>
                     <th>Price</th>
                     <th>Edit</th>
                     <th>Delete</th>
-                  </tr>
-                </thead>
-                <tbody id="tbody"></tbody>
-              </table>
-        </div>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
+    
     </div>
     <script src="script.js"></script>
 </body>
-</html>
+</html> 
+
